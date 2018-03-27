@@ -14,7 +14,6 @@ public class Runner {
 		frame = new JFrame();
 		panel = new gamePanel();
 		frame.addKeyListener(panel);
-		
 
 	}
 
