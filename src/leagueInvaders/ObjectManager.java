@@ -35,7 +35,12 @@ public class ObjectManager {
 
 		}
 		manageEnemies();
-		
+		for (int x = 0; x < AlienList.size(); x++) {
+
+
+			
+
+		}
 	}
 
 	public void draw(Graphics g) {

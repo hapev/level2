@@ -8,7 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -19,18 +22,47 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
-	int currentState = MENU_STATE;
+	 int currentState = MENU_STATE;
 	Font titleFont;
 	Font normalFont;
 	Font bigFont;
+	
 	Rocketship rocketship = new Rocketship(250, 700, 50, 50);
+	
+
 	ObjectManager manager = new ObjectManager(rocketship);
+	  public static BufferedImage alienImg;
+
+      public static BufferedImage rocketImg;
+
+      public static BufferedImage bulletImg;
+
+      public static BufferedImage spaceImg;
 
 	public gamePanel() {
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		normalFont = new Font("Arial", Font.PLAIN, 24);
 		bigFont = new Font("Arial", Font.PLAIN, 100);
+        try {
+
+            alienImg = ImageIO.read(this.getClass().getResourceAsStream("alien.png"));
+
+            rocketImg = ImageIO.read(this.getClass().getResourceAsStream("rocket.png"));
+
+            bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
+
+            spaceImg = ImageIO.read(this.getClass().getResourceAsStream("space.png"));
+
+    } catch (IOException e) {
+
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+
+    }
+
+
 
 	}
 
@@ -79,6 +111,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 	}
 
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -100,15 +133,24 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-			currentState++;
+	if (currentState == END_STATE) {
+				
+				rocketship = new Rocketship(250, 700, 50, 50);
+				manager = new ObjectManager(rocketship);
+				System.out.println("h");
+			}
+			if (currentState != GAME_STATE) {
+				currentState++;
+			}
 			System.out.println(currentState);
+		
+
 			if (currentState > END_STATE) {
 
 				currentState = MENU_STATE;
 
 			}
-
+			
 		}
 	}
 
@@ -125,9 +167,15 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.update();
 		manager.checkCollision();
 		manager.purgeObjects();
+		
+	
 		if (rocketship.isAlive==false) {
 			currentState = END_STATE;
 		}
+		if (rocketship.isAlive==false) {
+			currentState = END_STATE;
+		}
+
 
 	}
 
@@ -148,9 +196,9 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
-		g.setColor(Color.BLACK);
+	
 
-		g.fillRect(0, 0, Runner.gameWidth, Runner.gameHeight);
+		g.drawImage(spaceImg,0, 0, Runner.gameWidth, Runner.gameHeight,null);
 		manager.draw(g);
 
 	}
