@@ -13,18 +13,21 @@ public class Alien extends GameObject {
 	public void update() {
 		super.update();
 		y++;
-		if (y > Runner.gameHeight) {
-			isAlive = false;
-		}
+			
 
 	}
 
 	public void draw(Graphics g) {
 
-		g.setColor(Color.YELLOW);
-
-		g.fillRect(x, y, width, height);
+		g.drawImage(gamePanel.alienImg, x, y, width, height, null);
 
 	}
+	public boolean kill() {
+		if (y > Runner.gameHeight) {
+			return true;
 
+		}
+		return false;
+		
+	}
 }

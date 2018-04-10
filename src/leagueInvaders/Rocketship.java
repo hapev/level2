@@ -28,10 +28,9 @@ public class Rocketship extends GameObject{
 		}
 	
 	public void draw(Graphics g) {
+	      g.drawImage(gamePanel.rocketImg, x, y, width, height, null);
 
-		g.setColor(Color.BLUE);
 
-		g.fillRect(x, y, width, height);
 
 
 		
