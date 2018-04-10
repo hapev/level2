@@ -13,10 +13,7 @@ public class GameObject {
 	int height;
 	boolean isAlive = true;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 	Rectangle collisionBox;
 	public GameObject(int x, int y, int width, int height) {
 		this.x = x;

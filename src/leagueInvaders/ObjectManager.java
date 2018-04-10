@@ -13,7 +13,6 @@ public class ObjectManager {
 	long enemyTimer = 0;
 	int enemySpawnTime = 500;
 	public int score = 0;
-	boolean killed = false;
 
 	ArrayList<Projectile> ProjectileList = new ArrayList<Projectile>();
 
@@ -33,31 +32,17 @@ public class ObjectManager {
 		for (int x = 0; x < AlienList.size(); x++) {
 
 			AlienList.get(x).update();
-			if (AlienList.get(x).kill()==true) {
-				killed = true;
-				
-			}
 
 		}
 		manageEnemies();
-<<<<<<< HEAD
 		for (int x = 0; x < AlienList.size(); x++) {
 
 
 			
 
 		}
-=======
-		
-		
 	}
-	public boolean kill2() {
-		return killed;
-		
-		
-		
->>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
-	}
+
 	public void draw(Graphics g) {
 		rocketship.draw(g);
 
