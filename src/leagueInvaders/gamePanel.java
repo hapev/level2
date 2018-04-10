@@ -31,6 +31,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	
 
 	ObjectManager manager = new ObjectManager(rocketship);
+<<<<<<< HEAD
 	  public static BufferedImage alienImg;
 
       public static BufferedImage rocketImg;
@@ -38,13 +39,29 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
       public static BufferedImage bulletImg;
 
       public static BufferedImage spaceImg;
+=======
+    public static BufferedImage alienImg;
+
+    public static BufferedImage rocketImg;
+
+    public static BufferedImage bulletImg;
+
+    public static BufferedImage spaceImg;
+
+
+
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 
 	public gamePanel() {
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		normalFont = new Font("Arial", Font.PLAIN, 24);
 		bigFont = new Font("Arial", Font.PLAIN, 100);
+<<<<<<< HEAD
         try {
+=======
+	    try {
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 
             alienImg = ImageIO.read(this.getClass().getResourceAsStream("alien.png"));
 
@@ -62,7 +79,10 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 
 	}
 
@@ -133,6 +153,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+<<<<<<< HEAD
 	if (currentState == END_STATE) {
 				
 				rocketship = new Rocketship(250, 700, 50, 50);
@@ -142,6 +163,13 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 			if (currentState != GAME_STATE) {
 				currentState++;
 			}
+=======
+			if (currentState == END_STATE) {
+				rocketship =  new Rocketship(250, 700, 50, 50);
+				manager = new ObjectManager(rocketship);
+			}
+			currentState++;
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 			System.out.println(currentState);
 		
 
@@ -151,6 +179,10 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
 			}
 			
+<<<<<<< HEAD
+=======
+
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 		}
 	}
 
@@ -165,6 +197,9 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void updateGameState() {
 		manager.update();
+		if (manager.kill2() == true) {
+			currentState = END_STATE;
+		}
 		manager.checkCollision();
 		manager.purgeObjects();
 		
@@ -196,9 +231,13 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
+<<<<<<< HEAD
 	
 
 		g.drawImage(spaceImg,0, 0, Runner.gameWidth, Runner.gameHeight,null);
+=======
+		g.drawImage(gamePanel.spaceImg, 0, 0, Runner.gameWidth, Runner.gameHeight, null);
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 		manager.draw(g);
 
 	}

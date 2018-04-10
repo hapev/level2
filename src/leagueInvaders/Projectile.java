@@ -22,7 +22,12 @@ public class Projectile extends GameObject {
 	}
 
 	public void draw(Graphics g) {
+<<<<<<< HEAD
 		 g.drawImage(gamePanel.bulletImg, x, y, width, height, null);
 
+=======
+
+	     g.drawImage(gamePanel.bulletImg, x, y, width, height, null);
+>>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
 	}
 }
