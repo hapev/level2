@@ -11,7 +11,7 @@ public class ObjectManager {
 
 	Rocketship rocketship;
 	long enemyTimer = 0;
-	int enemySpawnTime = 500;
+	int enemySpawnTime = 300;
 	public int score = 0;
 	boolean killed = false;
 
@@ -40,14 +40,14 @@ public class ObjectManager {
 
 		}
 		manageEnemies();
-<<<<<<< HEAD
+
 		for (int x = 0; x < AlienList.size(); x++) {
 
 
 			
 
 		}
-=======
+
 		
 		
 	}
@@ -56,7 +56,7 @@ public class ObjectManager {
 		
 		
 		
->>>>>>> 18fb9175f21344e80de6a48ddcf849200aefe27a
+
 	}
 	public void draw(Graphics g) {
 		rocketship.draw(g);
