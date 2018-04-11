@@ -18,6 +18,7 @@ import javax.swing.Timer;
 
 import javafx.scene.input.KeyCode;
 
+
 public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
 	final int MENU_STATE = 0;
@@ -27,19 +28,17 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	Font titleFont;
 	Font normalFont;
 	Font bigFont;
-	survivor man;
+
+	survivor man  = new survivor(600, 340, 50, 50);
 	
 
-  
-
-
-
+	ObjectManager manager = new ObjectManager(man);
 
 	public gamePanel() {
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		normalFont = new Font("Arial", Font.PLAIN, 24);
-		bigFont = new Font("Arial", Font.PLAIN, 100);
+		bigFont = new Font("Arial", Font.PLAIN, 400);
 	   
 
 
@@ -92,8 +91,32 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode()==KeyEvent.VK_ENTER) 
+		{
+			
+			currentState++;
+			if (currentState>END_STATE) {
+				currentState=MENU_STATE;
+			}
+		}
 		
-
+		
+		if (e.getKeyCode()==KeyEvent.VK_UP) 
+		{
+			man.moveUp();
+		}if (e.getKeyCode()==KeyEvent.VK_DOWN) 
+		{
+			man.moveDown();
+		}
+		if (e.getKeyCode()==KeyEvent.VK_LEFT) 
+		{
+			man.moveLeft();
+		}
+		if (e.getKeyCode()==KeyEvent.VK_RIGHT) 
+		{
+			man.moveRight();
+		}
+		
 		}
 	
 
@@ -107,7 +130,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void updateGameState() {
-		
+		manager.update();
 	}
 
 	public void updateEndState() {
@@ -126,12 +149,20 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
-	
+		g.setColor(Color.GREEN);
+		g.fillRect(0, 0, evanGame.gameWidth, evanGame.gameHeight);
+		manager.draw(g);
 
 	}
 
 	public void drawEndState(Graphics g) {
+		g.setColor(Color.ORANGE);
+		g.fillRect(0, 0, evanGame.gameWidth, evanGame.gameHeight);
+		g.setColor(Color.CYAN);
+		g.setFont(bigFont);
+		g.drawString("GAME", 0, 400);
+		g.setFont(normalFont);
+		g.drawString("over",1000,420);
 		
-
 	}
 }

@@ -31,7 +31,7 @@ package evanGame;
 		}
 
 		public void draw(Graphics g) {
-		
+			
 		}
 
 

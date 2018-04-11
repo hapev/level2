@@ -29,7 +29,7 @@ public class survivor extends GameObject {
 			}
 		
 		public void draw(Graphics g) {
-		
+		g.setColor(Color.BLACK);
 		g.fillRect(x, y, width, height);
 		}
 		
