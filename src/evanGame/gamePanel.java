@@ -19,6 +19,7 @@ import javax.swing.Timer;
 import javafx.scene.input.KeyCode;
 
 
+
 public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
 	final int MENU_STATE = 0;
@@ -29,7 +30,6 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	Font normalFont;
 	Font bigFont;
 
-	survivor man  = new survivor(600, 340, 50, 50);
 	
 
 	ObjectManager manager = new ObjectManager(man);
@@ -99,23 +99,17 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState=MENU_STATE;
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+			if (currentState == END_STATE) {
+				man =  new survivor(250, 700, 50, 50);
+				manager = new ObjectManager(man);
+			}
+		}
+		if (e.getKeyCode()==KeyEvent.VK_SPACE) {
+		man.jump();
+		}
 		
-		
-		if (e.getKeyCode()==KeyEvent.VK_UP) 
-		{
-			man.moveUp();
-		}if (e.getKeyCode()==KeyEvent.VK_DOWN) 
-		{
-			man.moveDown();
-		}
-		if (e.getKeyCode()==KeyEvent.VK_LEFT) 
-		{
-			man.moveLeft();
-		}
-		if (e.getKeyCode()==KeyEvent.VK_RIGHT) 
-		{
-			man.moveRight();
-		}
 		
 		}
 	
@@ -131,6 +125,9 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void updateGameState() {
 		manager.update();
+		if (man.isAlive==false) {
+			currentState = END_STATE;
+		}
 	}
 
 	public void updateEndState() {

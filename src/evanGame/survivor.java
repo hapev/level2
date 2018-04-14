@@ -6,33 +6,47 @@ public class survivor extends GameObject {
 
 	
 		int speed;
+		float yVelocity = 0;
+		float gravity = 5;
+		boolean isTouching = true;
 
 		public survivor(int x, int y, int width, int height) {
 			super(x, y, width, height);
-			speed = 15;
+
 		
 		}
 		public void update() {
 			super.update();
+			if (isTouching == true) {
+				yVelocity = 0;
+			}
+		else {
+				yVelocity+= gravity;
+				
+			}
+			y += yVelocity;
+			if (y>=670) {
+				isTouching = true;
+			}
+			
+			
+			
+			
+			
+			
 		}
-		public void moveLeft() {
-			x = x-speed;
-			}
-		public void moveRight() {
-			x = x+speed;
-			}
-		public void moveDown() {
-			y = y+speed;
-			}
-		public void moveUp() {
-			y = y-speed;
-			}
 		
 		public void draw(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(x, y, width, height);
 		}
-		
+		public void jump() {
+			if (isTouching == true) {
+			isTouching = false;
+			yVelocity = -40;
+			}
+			
+		}
 	}
 
 
