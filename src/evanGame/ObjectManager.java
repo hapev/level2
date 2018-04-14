@@ -11,10 +11,10 @@ import leagueInvaders.Alien;
 import leagueInvaders.Runner;
 
 public class ObjectManager {
-	ArrayList<Spike> SpikeList = new ArrayList<Spike>();
+	ArrayList<NormalEnemy> NormalList = new ArrayList<NormalEnemy>();
 	survivor man;
 	long enemyTimer = 0;
-	int enemySpawnTime = 700;
+	int enemySpawnTime = 1000;
 
 	public ObjectManager(survivor s) {
 		this.man = s;
@@ -25,8 +25,8 @@ public class ObjectManager {
 		
 		
 		
-		for (int x = 0; x < SpikeList.size(); x++) {
-			SpikeList.get(x).update();
+		for (int x = 0; x < NormalList.size(); x++) {
+			NormalList.get(x).update();
 
 		}
 		checkCollision();
@@ -35,27 +35,27 @@ public class ObjectManager {
 
 	public void manageEnemies() {
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
-			addSpike(new Spike(1280, 670, 50, 50));
+			addSpike(new NormalEnemy(1280, 670, 50, 50));
 
 			enemyTimer = System.currentTimeMillis();
 		}
 	}
 	public void draw(Graphics g) {
 		man.draw(g);
-		for (int x = 0; x < SpikeList.size(); x++) {
+		for (int x = 0; x < NormalList.size(); x++) {
 
-			SpikeList.get(x).draw(g);
+			NormalList.get(x).draw(g);
 
 		}
 
 	}
-	public void addSpike(Spike s) {
-		SpikeList.add(s);
+	public void addSpike(NormalEnemy s) {
+		NormalList.add(s);
 	}
 	public void checkCollision() {
-		for (int x = 0; x < SpikeList.size(); x++) {
+		for (int x = 0; x < NormalList.size(); x++) {
 
-			if (man.collisionBox.intersects(SpikeList.get(x).collisionBox)) {
+			if (man.collisionBox.intersects(NormalList.get(x).collisionBox)) {
 
 				man.isAlive = false;
 

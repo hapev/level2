@@ -37,8 +37,7 @@ public class survivor extends GameObject {
 		}
 		
 		public void draw(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.fillRect(x, y, width, height);
+		g.drawImage(gamePanel.survivorImg,x,y,width,height,null);
 		}
 		public void jump() {
 			if (isTouching == true) {

@@ -6,10 +6,14 @@ import java.util.Random;
 
 
 
-public class Spike extends GameObject{
+public class NormalEnemy extends GameObject{
+
+
+
+
 Random random = new Random();
-int speed = random.nextInt(40)+20;
-	public Spike(int x, int y, int width, int height) {
+int speed = random.nextInt(30)+20;
+	public NormalEnemy(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		
 		
@@ -24,10 +28,9 @@ int speed = random.nextInt(40)+20;
 		
 	
 	public void draw(Graphics g) {
-	g.setColor(Color.RED);
+
 	
-	g.fillRect(x, y, width, height);
-	
+	g.drawImage(gamePanel.normalEnemyImg, x, y,width,height, null);
 	}
 		
 	}

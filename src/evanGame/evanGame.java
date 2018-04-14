@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public class evanGame {
 	gamePanel panel;
 	JFrame frame;
-	final static int gameWidth = 1200;
+	final static int gameWidth = 1280;
 	final static int gameHeight = 720;
 
 	public static void main(String[] args) {
