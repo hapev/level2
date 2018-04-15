@@ -38,8 +38,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	 public static BufferedImage normalEnemyImg;
 	 public static BufferedImage survivorImg;
 	 public static BufferedImage backgroundImg;
-
-  
+	 public static BufferedImage doubleEnemyImg;
 	public gamePanel() {
 		timer = new Timer(1000 / 60, this);
 	
@@ -54,6 +53,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	            normalEnemyImg = ImageIO.read(this.getClass().getResourceAsStream("NormalEnemy.png"));
 	            survivorImg = ImageIO.read(this.getClass().getResourceAsStream("Survivor.png"));
 	            backgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
+	            doubleEnemyImg = ImageIO.read(this.getClass().getResourceAsStream("DoubleEnemy.png"));
 	           
 	    } catch (IOException e) {
 
@@ -154,8 +154,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 			currentState = END_STATE;
 		}
 		score +=	1 ;
-		System.out.println(score);
-	}
+			}
 
 	public void updateEndState() {
 
@@ -166,7 +165,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setFont(titleFont);
 		g.fillRect(0, 0, evanGame.gameWidth, evanGame.gameHeight);
 		g.setColor(Color.BLACK);
-		g.drawString("PirateJumper", 75, 200);
+		g.drawString("PirateJump", 75, 200);
 		g.setFont(normalFont);
 		g.setColor(Color.BLACK);
 		g.drawString("Press ENTER to start ", 100, 400);

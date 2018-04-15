@@ -9,6 +9,7 @@ public class survivor extends GameObject {
 		float yVelocity = 0;
 		float gravity = 5;
 		boolean isTouching = true;
+	
 
 		public survivor(int x, int y, int width, int height) {
 			super(x, y, width, height);
@@ -17,7 +18,8 @@ public class survivor extends GameObject {
 		}
 		public void update() {
 			super.update();
-			if (isTouching == true) {
+		
+				if (isTouching == true) {
 				yVelocity = 0;
 			}
 		else {
@@ -30,7 +32,7 @@ public class survivor extends GameObject {
 				isTouching = true;
 			}
 			
-			
+		
 			
 			
 			

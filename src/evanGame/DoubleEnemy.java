@@ -30,7 +30,7 @@ int speed = random.nextInt(20)+20;
 	public void draw(Graphics g) {
 
 	
-	g.drawImage(gamePanel.normalEnemyImg, x, y,width,height, null);
+	g.drawImage(gamePanel.doubleEnemyImg, x, y,width,height, null);
 	}
 		
 	}
