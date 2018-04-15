@@ -37,6 +37,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
 	 public static BufferedImage normalEnemyImg;
 	 public static BufferedImage survivorImg;
+	 public static BufferedImage backgroundImg;
 
   
 	public gamePanel() {
@@ -52,7 +53,8 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 
 	            normalEnemyImg = ImageIO.read(this.getClass().getResourceAsStream("NormalEnemy.png"));
 	            survivorImg = ImageIO.read(this.getClass().getResourceAsStream("Survivor.png"));
-
+	            backgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
+	           
 	    } catch (IOException e) {
 
 	            // TODO Auto-generated catch block
@@ -171,8 +173,7 @@ public class gamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
-		g.setColor(Color.GREEN);
-		g.fillRect(0, 0, evanGame.gameWidth, evanGame.gameHeight);
+		g.drawImage(backgroundImg,0,0,evanGame.gameWidth,evanGame.gameHeight,null);
 		manager.draw(g);
 		
 		g.setColor(Color.WHITE);

@@ -25,6 +25,7 @@ public class survivor extends GameObject {
 				
 			}
 			y += yVelocity;
+			
 			if (y>=670) {
 				isTouching = true;
 			}
@@ -42,7 +43,7 @@ public class survivor extends GameObject {
 		public void jump() {
 			if (isTouching == true) {
 			isTouching = false;
-			yVelocity = -40;
+			yVelocity = -60;
 			}
 			
 		}
