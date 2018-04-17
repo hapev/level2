@@ -33,7 +33,7 @@ int speed = 30;
 	public void draw(Graphics g) {
 
 	
-	g.drawImage(gamePanel.normalEnemyImg, x, y,width,height, null);
+	g.drawImage(GamePanel.normalEnemyImg, x, y,width,height, null);
 	}
 		
 	}

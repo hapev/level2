@@ -2,8 +2,12 @@ package evanGame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 
 import com.sun.javafx.geom.Rectangle;
 
@@ -14,16 +18,17 @@ public class ObjectManager {
 	ArrayList<NormalEnemy> NormalList = new ArrayList<NormalEnemy>();
 	ArrayList<DoubleEnemy> DoubleList = new ArrayList<DoubleEnemy>();
 	ArrayList<BigEnemy> BigList = new ArrayList<BigEnemy>();
-	survivor man;
+	Survivor man;
 	Random r = new Random();
 	long enemyTimer = 0;
 	int whichEnemy;
+
 
 	int enemySpawnTime = 800;
 
 	public static boolean isTouchingPad = false;
 
-	public ObjectManager(survivor s) {
+	public ObjectManager(Survivor s) {
 		this.man = s;
 	}
 
@@ -86,9 +91,10 @@ public class ObjectManager {
 
 		}
 	}
-
+	
 	public void addNormalEnemy(NormalEnemy s) {
 		NormalList.add(s);
+
 	}
 
 	public void addDoubleEnemy(DoubleEnemy s) {
