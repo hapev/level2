@@ -1,18 +1,9 @@
 package evanGame;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-
-import com.sun.javafx.geom.Rectangle;
-
-import leagueInvaders.Alien;
-import leagueInvaders.Runner;
 
 public class ObjectManager {
 	ArrayList<NormalEnemy> NormalList = new ArrayList<NormalEnemy>();

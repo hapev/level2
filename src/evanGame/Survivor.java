@@ -1,5 +1,4 @@
 package evanGame;
-	import java.awt.Color;
 	import java.awt.Graphics;
 public class Survivor extends GameObject {
 

@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int score;
 	Clip clip;
 	Clip clip2;
-	boolean playingMusic = false;
+
 
 		Survivor man = new Survivor(40,670,50,50);
 
@@ -166,32 +166,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		score +=	1 ;
 			}
-	public void playMusic() {
-		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/evanGame/music.wav").toURI().toURL());
-			clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-	public void playArr() {
-		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/evanGame/arr.wav").toURI().toURL());
-			clip2 = AudioSystem.getClip();
-			clip2.open(audioInputStream);
-			clip2.start();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-	public void stopMusic() {
-		clip.stop();
 		
-	}
+	
 	public void updateEndState() {
-
+	
 	}
 
 	public void drawMenuState(Graphics g) {
@@ -214,10 +192,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.BLUE);
 		g.setFont(normalFont);
 		g.drawString("SCORE:"+score/60, 50, 50);
-		if (playingMusic == false) {
-			playMusic();
-			playingMusic = true;
-		}
+		
 
 
 	}
@@ -231,10 +206,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setFont(normalFont);
 		g.drawString("over",1000,420);
 		g.drawString("Your score was only "+score/60, 600, 600);
-		if (playingMusic == true) {
-			stopMusic();
-			playingMusic = false;
-		}
+		
 		
 	}
 }
