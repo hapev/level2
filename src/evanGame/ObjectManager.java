@@ -11,11 +11,11 @@ public class ObjectManager {
 	ArrayList<BigEnemy> BigList = new ArrayList<BigEnemy>();
 	Survivor man;
 	Random r = new Random();
-	long enemyTimer = 0;
+	long enemyTimer = System.currentTimeMillis()+2500;
 	int whichEnemy;
 
 
-	int enemySpawnTime = 800;
+	int enemySpawnTime = 1000;
 
 	public static boolean isTouchingPad = false;
 
